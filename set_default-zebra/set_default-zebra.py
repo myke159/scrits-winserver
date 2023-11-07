@@ -27,7 +27,7 @@ from selenium.webdriver.common.keys import Keys
 log_level = os.getenv("LOG_LEVEL", "WARNING").upper()
 log = logging.Logger("set_default-zebra.py", log_level)
 fh = handlers.RotatingFileHandler(
-    "set_default-zebra.log",
+    "set_default-zebra-log.log",
     maxBytes=10**7, # tamanho = 10MB
     backupCount=10
 )
