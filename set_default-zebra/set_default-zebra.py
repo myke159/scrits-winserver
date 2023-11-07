@@ -6,13 +6,13 @@ Set parametro impressora zebra zd220~230
 Script acessa a impressora pelo navegador, verifica os parametros, registra
 e faz a troca para o definido
 
-# python set_default-zebra.py ip larg.impr. larg.max.
+# python set_default-zebra.py ip larg.impr larg.max
 
 $ python set_default-zebra.py 192.168.16.238 831 3048
 
 """
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __author__ = "Myke A. Bueno"
 __license__ = "Unlicense"
 
@@ -38,8 +38,6 @@ fmt = logging.Formatter(
 )
 fh.setFormatter(fmt)
 log.addHandler(fh)
-
-
 
 path = os.curdir
 filepath = os.path.join(path, "set-default-zebra.txt")
@@ -84,7 +82,7 @@ try:
     while True:
         # Config Selenium -------------------------------
         options = webdriver.ChromeOptions()
-        # options.add_argument("--headless=new")  # Comente essa linha para acompanhar
+        options.add_argument("--headless=new")  # Comente essa linha para acompanhar
         navegador = webdriver.Chrome(options=options)
         # -----------------------------------------------
 
@@ -158,5 +156,5 @@ try:
         sleep(5)
 
 except KeyboardInterrupt as e:
-    print("Script Encerrado!")
+    print("Reiniciando o Script!")
     sys.exit(1)
